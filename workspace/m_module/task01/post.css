@@ -1,0 +1,21 @@
+table {
+    width: 700px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr,
+td {
+    border: 1px solid black;
+}
+
+/* td { */
+    /* 테이블 태그는 기본 스타일이 적용되어 있어서 */
+    /* 직접 수정하는 부분에 어려움이 있다. */
+    /* 이럴 경우 DIV 태그를 적극적으로 활용한다. */
+    /* display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+/* } */

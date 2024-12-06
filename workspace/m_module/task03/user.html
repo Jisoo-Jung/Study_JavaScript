@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>회원 모듈</title>
+        <style>
+            table {
+                width: 700px;
+                margin: 0 auto;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            tr,
+            td {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 회원 2명의 정보를 출력하고 각 회원이 작성한 게시글 3개씩 출력 -->
+        <!-- 회원의 정보 중 name, username만 출력하고 -->
+        <!-- 게시글 정보 중 id, title만 출력한다 -->
+        <button id="go-users">회원 목록 불러오기</button>
+        <table class="users"></table>
+    </body>
+    <script src="service.js"></script>
+    <script src="layout.js"></script>
+    <script src="event.js"></script>
+</html>

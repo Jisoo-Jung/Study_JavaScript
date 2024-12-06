@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>scope</title>
+    </head>
+    <body></body>
+    <script>
+        // 전역 변수 선언
+        // 브라우저로 JS를 실행하면, window 객체가 전역 변수들을 관리한다.
+        // window.x = 10;
+        globalThis.x = 10;
+
+        function f() {
+            let x = 20;
+            // window.x = 30;
+            globalThis.x = 30;
+            console.log(x);
+        }
+
+        f();
+
+        console.log(globalThis.x);
+    </script>
+</html>

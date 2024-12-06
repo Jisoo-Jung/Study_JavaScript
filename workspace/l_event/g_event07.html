@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 07</title>
+    </head>
+    <body>
+        <select name="category">
+            <option value="전체" selected>전체</option>
+            <option value="상의">상의</option>
+            <option value="아우터">아우터</option>
+            <option value="바지">바지</option>
+            <option value="원피스/스커트">원피스/스커트</option>
+            <option value="직접 입력">직접 입력</option>
+        </select>
+        <input type="text" />
+    </body>
+    <script>
+        const category = document.querySelector("select[name=category]");
+        const input = document.querySelector("input[type=text]");
+
+        category.addEventListener("change", (e) => {
+            if (e.target.value == "직접 입력") {
+                input.value = "";
+                input.placeholder = e.target.value;
+                // 이제 사용자가 직접 수정할 수 있다.
+                input.readOnly = false;
+            } else {
+                input.value = e.target.value;
+                // 사용자가 수정할 수 없게 막아준다.
+                input.readOnly = true;
+            }
+        });
+
+        // 원하는 이벤트를 직접 발생시키는 방법
+        category.dispatchEvent(new Event("change"));
+    </script>
+</html>

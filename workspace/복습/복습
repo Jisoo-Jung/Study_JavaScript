@@ -1,0 +1,107 @@
+1. 화면
+2. 저장소
+3. 서버
+4. 화면
+
+무한반복
+
+CREATE TABLE TBL_MEMBER();
+
+public class MemberVO{}
+
+public class MemberDAO{
+
+    public MemberVO getUser(Long id){
+        MemberVO memberVO = selectOne();
+        return memberVO;
+    }
+}
+
+@RestController
+@RequestMapping("/member/*")
+public class MemberController {
+    @Autowired
+    MemberDAO memberDAO;
+
+    @GetMapping("/{id}")
+    public MemberVO getUser(@PathValue Long id){
+        return memberDAO.getUser(id)
+    }
+
+}
+
+const userService = (() => {
+    const getUser = async (callback) => {
+        const response = await fetch("localhost:10000/member/3");
+        const user = await response.json();
+
+        if(callback) {
+            callback(user);
+        }
+    }
+    return {getUser: getUser};
+})();
+
+
+const userLayout = (() => {
+    const showUser = (user) => {
+        const div = document.getElementById("container");
+        div.innerHTML = `
+            <p>${user.address}</p>
+        `
+    }
+
+    return {showUser: showUser};
+});
+
+<html>
+    <head></head>
+    <body></body>
+    <script src="./static/js/user/layout.js">
+    <script>
+        userService.getUser(userLayout.showUser);
+    </script>
+</html>
+
+Spring에서 전부 다 합치기
+Spring도 어렵고 합치는 것도 어렵다.
+
+각각이 전부 탄탄하게 되어있어야 머리에 들어옴
+
+새로운 Spring 문법을 배우는 중에 ArrayList를 모른다.
+망함
+
+ORM
+    Object
+    Relation
+    Mapping
+
+ORM 기술은 이런 기술의 총칭이다.
+사용은: JPA
+
+이런 기술: 자바 메소드 쓰면 쿼리가 자동으로 작성되서 날아감
+
+(Relation: 1:1, 1:N, N:1, N:N)
+@Entity
+class Post {
+    priavate String postTitle;
+
+    @ManyToOne
+    private Member member;
+}
+
+코틀린
+
+JPA쪽에서는 JAVA
+그 외 나머지는 코틀린(코프링)
+
+MSA(헥사고날 설계)
+
+devOps
+CI/CD: 배포 자동화, 파이프 라인 구축
+로컬에서 ctrl + s누르면 테스트 서버에 바로 반영
+테스트 서버 -> QA팀 -> 본서버
+
+클라우드
+AI
+

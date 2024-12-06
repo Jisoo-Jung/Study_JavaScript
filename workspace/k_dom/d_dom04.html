@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>선택자로 선택 실습</title>
+    </head>
+    <body>
+        <h1>CSS 선택자로 선택</h1>
+        <p>갖고 싶은 위시리스트</p>
+        <ul>
+            <li>마우스</li>
+            <li>자동차</li>
+            <li class="아파트">강남 아파트</li>
+            <li>유니폼</li>
+            <li class="아파트">분당 아파트</li>
+            <li>여자친구</li>
+        </ul>
+    </body>
+    <script>
+        // querySelector(), querySelectorAll()
+        // 내용에 아파트가 들어간 태그의 스타일을
+        // fontSize: 30px, color: pink로 변경
+        const items = document.querySelectorAll("ul li");
+        items.forEach((item) => {
+            if (item.innerText.includes("아파트")) {
+                with (item.style) {
+                    fontSize = "30px";
+                    color = "pink";
+                }
+            }
+        });
+
+        // 유니폼이 들어간 태그의 스타일 -> 초록색
+        items.forEach((item) => {
+            if (item.innerText.includes("유니폼")) {
+                with (item.style) {
+                    color = "green";
+                }
+            }
+        });
+
+        // 마우스가 들어간 태그의 스타일을
+        // 40px, blue
+        items.forEach((item) => {
+            if (item.innerText.includes("마우스")) {
+                with (item.style) {
+                    fontSize = "40px";
+                    color = "blue";
+                }
+            }
+        });
+    </script>
+</html>

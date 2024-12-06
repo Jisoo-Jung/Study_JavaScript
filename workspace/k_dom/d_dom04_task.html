@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM 실습</title>
+    </head>
+    <body>
+        <strong id="STRONG">STRONG 태그입니다.</strong>
+        <div>
+            <strong>STRONG 태그입니다.</strong>
+        </div>
+    </body>
+    <script>
+        // div 안에 있는 strong 태그에만 글자 크기를 기본 크기의 1.5배로 설정한다.
+        // div 안에 있지 않은 strong 태그에만 글자색을 핫핑크색으로 변경한다.
+
+        const divStrong = document.querySelectorAll("div strong");
+        const strong = document.querySelectorAll("#STRONG");
+
+        divStrong.forEach((e) => {
+            e.style.fontSize = "1.5rem";
+        });
+
+        strong.forEach((e) => {
+            e.style.color = "hotpink";
+        });
+
+        // const items = document.querySelectorAll("div strong");
+        // items.forEach((item) => {
+        //     item.style.fontSize = "1.5rem";
+        // });
+
+        // const items2 = document.querySelectorAll("#STRONG");
+        // items2.forEach((item2) => {
+        //     item2.style.color = "hotpink";
+        // });
+    </script>
+</html>

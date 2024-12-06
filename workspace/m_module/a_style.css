@@ -1,0 +1,7 @@
+#photo-wrap {
+    width: 600px;
+}
+
+#photo-wrap div {
+    float: left;
+}

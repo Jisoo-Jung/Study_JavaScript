@@ -1,0 +1,15 @@
+#post-wrap {
+    width: 600px;
+}
+
+#post-wrap div {
+    float: left;
+}
+
+/* table, tr, td, th {
+    text-align: center;
+    width: 450px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+ } */

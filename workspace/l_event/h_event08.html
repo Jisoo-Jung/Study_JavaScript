@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 위임</title>
+        <style>
+            #container {
+                border: 1px dashed black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container" style="height: 400px"></div>
+    </body>
+    <script>
+        const container = document.getElementById("container");
+        const children = null;
+
+        container.innerHTML = `<div class="child child1">이벤트 위임1</div>`;
+        container.innerHTML += `<div class="child child2">이벤트 위임2</div>`;
+
+        container.addEventListener("click", (e) => {
+            if (e.target.classList[0] === "child") {
+                alert(`${e.target.classList[1]} 들어옴!`);
+            }
+        });
+
+        // children = document.querySelectorAll(".child");
+
+        // children.forEach((child) => {
+        //     child.addEventListener("click", (e) => {
+        //         alert(`${child.classList[1]} 들어옴!`);
+        //     });
+        // });
+    </script>
+</html>

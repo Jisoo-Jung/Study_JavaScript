@@ -1,0 +1,49 @@
+<body>
+    <form action="" name="my-form">
+        <div>
+            <label>
+                관심사선택
+                <input type="checkbox" name="all" class="all" />
+            </label>
+        </div>
+        <div>
+            <label>
+                영화
+                <input type="checkbox" name="movies" class="interest" />
+            </label>
+        </div>
+        <div>
+            <label>
+                음악
+                <input type="checkbox" name="music" class="interest" />
+            </label>
+        </div>
+        <div>
+            <label>
+                스포츠
+                <input type="checkbox" name="sports" class="interest" />
+            </label>
+        </div>
+    </form>
+</body>
+<script>
+    //사용자가 "모두 선택" 체크박스를 클릭하면, 모든 관심사 체크박스가 선택되거나 해제되도록 하기
+    //사용자가 개별 관심사 체크박스 중 하나라도 해제하면, "모두 선택" 체크박스도 해제되도록 하기
+    NodeList.prototype.filter = Array.prototype.filter;
+
+    const all = document.querySelector("input.all");
+    const interests = document.querySelectorAll("input.interest");
+
+    all.addEventListener("click", (e) => {
+        interests.forEach((interest) => {
+            interest.checked = e.target.checked;
+        });
+    });
+
+    interests.forEach((interest) => {
+        interest.addEventListener("click", (e) => {
+            all.checked =
+                interests.filter((interest) => interest.checked).length === 3;
+        });
+    });
+</script>

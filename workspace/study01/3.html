@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 03 연습</title>
+    </head>
+    <body>
+        <h1>키 이벤트</h1>
+        <input type="text" placeholder="입력" />
+        <p id="enter"></p>
+    </body>
+    <script>
+        //엔터를 눌렀을때 '"enter키가 눌렸습니다!"라는 메세지 나오게 하기
+
+        const enter = document.querySelector("input[type=text]");
+        const message = document.getElementById("enter");
+
+        // console.log("바깥");
+
+        enter.addEventListener("keyup", (e) => {
+            // console.log("글자입력");
+            if (e.keyCode === 13) {
+                // console.log("엔터입력");
+                alert("enter키가 눌렸습니다!");
+            }
+        });
+    </script>
+</html>

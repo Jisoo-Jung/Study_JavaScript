@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <label> <input type="checkbox" value="선택1" /> 선택1 </label>
+        <label> <input type="checkbox" value="선택2" /> 선택2 </label>
+        <label> <input type="checkbox" value="선택3" /> 선택3 </label>
+        <p id="result"></p>
+    </body>
+    <script>
+        // 체크박스에 선택된 문구가 p태그에 순서대로 출력된다.
+        // 결과는 p태그에 작성하고, 해제될 때에는 해당 문구가 빨간색 처리되면서
+        // 글자 가운데 선이 그어진다. 다시 체크할 때는 검은색으로 돌아온다.
+
+        NodeList.prototype.filter = Array.prototype.filter;
+
+        const checkboxes = document.querySelectorAll("input[type=checkbox]");
+        const result = document.getElementById("result");
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("click", (e) => {
+                let text = ``;
+                if (e.target.checked) {
+                    text = `<span class="text">${e.target.value}</span>`;
+                    result.innerHTML += text;
+                } else {
+                    const spans = document.querySelectorAll("span.text");
+                    spans
+                        .filter((span) => span.innerText == e.target.value)
+                        .forEach((span) => {
+                            text = `<span class="text"><s>${span.innerText}</s></span>`;
+                            text.style.color = "red";
+                        });
+                    spans
+                        .filter((span) => span.innerText !== e.target.value)
+                        .forEach((span) => {
+                            text = `<span class="text">${span.innerText}</span>`;
+                            text.style.color = "black";
+                        });
+                    // result.innerHTML = text;
+                }
+            });
+        });
+    </script>
+</html>

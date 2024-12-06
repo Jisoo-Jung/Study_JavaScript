@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>실행 시간 조절</title>
+    </head>
+    <body></body>
+    <script>
+        const colors = ["yellow", "pink", "red", "black", "brown"];
+
+        // setInterval(callback, milis)
+        // 전달한 밀리초마다 callback함수를 실행해준다.
+        const backgroundInterval = setInterval(() => {
+            let i = Math.floor(Math.random() * colors.length);
+            document.body.style.backgroundColor = colors[i];
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(backgroundInterval);
+        }, 5000);
+
+        // setTimeout(() => {
+        //     let i = Math.floor(Math.random() * colors.length);
+        //     document.body.style.backgroundColor = colors[i];
+        // }, 5000);
+    </script>
+</html>

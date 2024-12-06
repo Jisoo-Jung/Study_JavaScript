@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>포커스, 블러 이벤트 실습</title>
+        <style>
+            input {
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <form action="" name="info"> -->
+        <form action="">
+            <input type="text" name="name" placeholder="이름" />
+            <input type="text" name="age" placeholder="나이" />
+        </form>
+    </body>
+    <script>
+        // focus된 input 태그의 테두리는 녹색으로,
+        // blur된 input 태그의 테두리는 빨간색으로 설정
+
+        const inputs = document.querySelectorAll("input[type=text]");
+        inputs.forEach((input) => {
+            input.addEventListener("focus", (e) => {
+                // e.target: 이벤트 발생시킨 객체
+                e.target.style.border = "1px solid green";
+            });
+            input.addEventListener("blur", (e) => {
+                e.target.style.border = "1px solid red";
+            });
+        });
+
+        // (실습 - 본인//문제대로 못함.)
+        // // const names = info.name;
+        // // const ages = info.age;
+
+        // const names = document.querySelector("input[name=name]");
+        // const ages = document.querySelector("input[name=age]");
+
+        // // names.addEventListener("blur", (e) => {
+        // //     console.log(names);
+        // //     console.log("이벤트리스너1");
+        // //     if (names.value) {
+        // //         console.log("이벤트리스너1-1");
+        // //         names.style.border = "1px solid green";
+        // //         return;
+        // //     }
+        // //     console.log("이벤트리스너1-2");
+        // //     names.style.border = "1px solid red";
+        // //     names.focus();
+        // // });
+
+        // // ages.addEventListener("blur", (e) => {
+        // //     console.log(ages);
+        // //     console.log("이벤트리스너2");
+        // //     if (ages.value) {
+        // //         console.log("이벤트리스너2-1");
+        // //         ages.style.border = "1px solid green";
+        // //         return;
+        // //     }
+        // //     console.log("이벤트리스너2-2");
+        // //     ages.style.border = "1px solid red";
+        // //     ages.focus();
+        // // });
+    </script>
+</html>
